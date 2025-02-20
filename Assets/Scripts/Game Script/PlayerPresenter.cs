@@ -7,21 +7,19 @@ using UnityEngine.Serialization;
 
 public class PlayerPresenter : MonoBehaviour
 {
-    [SerializeField] private PlayerDataManager player;
     [SerializeField] private TextMeshProUGUI woodText;
     [SerializeField] private List<GameObject> abilityCooldownUI = new List<GameObject>();
     private List<IEnumerator> _abilityCoroutines = new List<IEnumerator>();
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerDataManager>();
         PlayerDataManager.playerCollectTreeEvent += UpdatePlayerUI;
         PlayerController.UseAbility += StartAbilityCooldown;
     }
 
     private void UpdatePlayerUI()
     {
-        woodText.text = player.GetWood().ToString();
+        woodText.text = PlayerDataManager._instance.GetWood().ToString();
     }
 
     private void StartAbilityCooldown(int abilityIndex)

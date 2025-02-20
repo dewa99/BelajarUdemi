@@ -6,7 +6,7 @@ using System;
 
 public class PlayerDataManager : MonoBehaviour
 {
-    private static PlayerDataManager _instance = null;
+    public static PlayerDataManager _instance = null;
     [SerializeField] private int _wood = 0;
     
 
