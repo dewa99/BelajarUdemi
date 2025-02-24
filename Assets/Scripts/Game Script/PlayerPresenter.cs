@@ -19,16 +19,29 @@ public class PlayerPresenter : MonoBehaviour
 
     private void UpdatePlayerUI()
     {
-        woodText.text = PlayerDataManager._instance.GetWood().ToString();
+        woodText.text = PlayerDataManager._instance.GetWood().ToString(); //for now this is okay but next write like this below
+
+        /*private void UpdatePlayerUI(int data)
+        {
+            woodText.text = data.ToString(); 
+
+        }*/
+
+        //create script called UIManager and call the UpdatePlayerUI from there. best practice of MVP Presenter is only bridge from model and view you need process the logic from manager
     }
 
     private void StartAbilityCooldown(int abilityIndex)
     {
+        _abilityCoroutines.Add(null); //use loops
         _abilityCoroutines.Add(null);
         _abilityCoroutines.Add(null);
         _abilityCoroutines.Add(null);
         _abilityCoroutines.Add(null);
-        _abilityCoroutines.Add(null);
+
+      /*  for (int i = 0; i < 5; i++) <====== use this ya, dont write same recuring code
+        {
+            _abilityCoroutines.Add(null); 
+        }*/
         abilityIndex -= 1;
         if (_abilityCoroutines.Count > 0)
         {

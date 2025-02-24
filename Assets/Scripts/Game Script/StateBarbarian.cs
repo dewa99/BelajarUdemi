@@ -25,7 +25,7 @@ public class StateBarbarian : MonoBehaviour, BarbarianContext
     private void Start()
     {
         PlayerController.playerWalking += Walking;
-        PlayerController.playerChopTree += Attack;
+        PlayerController.playerChopTree += Attack; //The playerChopTree event is subscribed to with PlayerController.playerChopTree += Attack. This will be confusing if Attack is not only for chopping trees in the future. It would be better to rename playerChopTree to playerAttack or just Attack
         PlayerController.playerIdling += Idle;
         PlayerController.UseAbility += Ability;
         _playerController = FindObjectOfType<PlayerController>();
@@ -66,7 +66,7 @@ public class IdleState : BarbarianState
             case 1:
                 context.SetState(new AbilityState());
                 return;
-                break;
+                break; // this is unused because u already call return;  switch case always has break in the end of condition so dont use return if its not necessary
             case 2:
                 context.SetState(new AbilityState());
                 animator.SetBool("IsSpinning", true);
@@ -107,7 +107,7 @@ public class WalkingState : BarbarianState
             case 1:
                 context.SetState(new AbilityState());
                 return;
-                break;
+                break; // this is unused because u already call return;  switch case always has break in the end of condition so dont use return if its not necessary
             case 2:
                 context.SetState(new AbilityState());
                 animator.SetBool("IsSpinning", true);
@@ -178,7 +178,7 @@ public class AbilityState : BarbarianState
             case 1:
                 context.SetState(new AbilityState());
                 return;
-                break;
+                break; // this is unused because u already call return;  switch case always has break in the end of condition so dont use return if its not necessary
             case 2:
                 context.SetState(new AbilityState());
                 animator.SetBool("IsSpinning", true);

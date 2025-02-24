@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using Bloom = UnityEngine.Rendering.Universal.Bloom;
 
-public class Object : MonoBehaviour
+public class Object : MonoBehaviour //class name must be clear and specific, this class name is to general
 {
     public Volume volume;
     public bool isPlayerAlive = false;

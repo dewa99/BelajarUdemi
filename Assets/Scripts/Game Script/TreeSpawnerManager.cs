@@ -34,11 +34,23 @@ public class TreeSpawnerManager : MonoBehaviour
         }
     }
 
-    private void SpawnTreeIn5Seconds()
+    private void SpawnTreeIn5Seconds() //u can make this more dynamic like example below
     {
         StartCoroutine(SpawnTreeAfter5Seconds());
     }
+    //=============================================
+    //make like this so you can change the delay anytime via inspector or maybe code 
+    private void SpawnDelayedTree(int delay)
+    {
+        StartCoroutine(SpawnDelayedTreeEnumerator(delay));
+    }
 
+    IEnumerator SpawnDelayedTreeEnumerator(int delay)
+    {
+        _treePool.Get();
+        yield return new WaitForSeconds(delay);
+    }
+    //============================================
     private IEnumerator SpawnTreeAfter5Seconds()
     {
         yield return new WaitForSeconds(5);

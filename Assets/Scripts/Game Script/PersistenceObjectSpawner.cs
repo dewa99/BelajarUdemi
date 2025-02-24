@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PersistenceObjectSpawner : MonoBehaviour
 {
-    [Tooltip("The object that will spawned once and persist between scenes.")] [SerializeField]
+    [Tooltip("The object that will spawned once and persist between scenes.")]
+    [SerializeField]
     private GameObject persistenceObjectPrefab = null;
 
     private static bool hasSpawned = false;
